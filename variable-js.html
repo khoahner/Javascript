@@ -1,0 +1,51 @@
+<!--
+    Biến (variable): là đối tượng dùng để lưu trữ dữ liệu và có thể thay đổi
+    khai báo: var [TEN_BIEN];
+    có thể gán giá trị cho biến khi khai báo.
+
+    ví dụ
+    var result;
+    var Length = 1;
+    var NAME = 'Leonardo Di Caprio';
+    var is_Correct = true;
+    var has_Room05_Opened = false;
+
+    Thay đổi giá trị của biến
+    sử dụng dấu = để gán giá trị mới
+    vd:
+    var name = 'Leonardo';
+    name = 'Leonardo Di';
+    name = 'Leonardo Di' + ' ' + 'Caprio';
+    var sum = 0;
+    sum = 1 + 2 + 3 + 4 + 5;
+
+    Ghi chú
+    là phần giải thích cho code và sẽ không được thực thi
+    có hai cách để viết comment.
+    // bắt đầu comment với 2 dấu slash
+    // chỉ dùng cho 1 dòng đơn
+
+    /* hoặc cặp dấu này */
+    /* áp dụng được cho comment nhiều dòng
+
+-->
+
+<script>
+var so_dep;
+console.log (so_dep);//biến so_dep chua được gán giá trị 
+
+var name = 'Nhật Khoa';
+console.log(name);//biến name sẽ là Nhật Khoa
+
+name = 'Nhật Khoa' + ' ' + 'Đẹp Trai';
+console.log(name);//thực hiện thay đổi biến name bằng nối chuỗi
+
+name = true;
+console.log('name = ' + name);
+
+var isActor = true;//check if this is an actor
+var isHandsome = true;//check if someone handsome
+
+var shouldIlikehime = isActor && isHandsome;
+console.log('should i like him ?: -Answer' + shouldIlikehime);
+</script>
