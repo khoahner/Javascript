@@ -1,0 +1,117 @@
+<!--
+    var numbers = [0, 1, 2, 3];
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    var answers = [true, false, true, true, true];
+
+    Dữ liệu
+    các phần tử của mảng có thể khác nhau về kiểu dữ liệu
+    var actor = ['Brad', 2016, true, 1.87];
+    var collection = ['Fight Club', false, [0.9, 'A good rating movie']];
+
+    Truy cập mảng
+    mỗi phần tử trong amng3 tương ứng với 1 index, vị trí đầu tiên là 0.
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    console.log(names[0]); //'Leonardo'
+    console.log(names[1]); //'Tom'
+    console.log(names[2]); //'Brad'
+
+    console.log(names[3]); // undefined
+
+    Kích thước mảng
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    console.log(names.length); // kích thước của mảng là 3
+
+    Thay đổi giá trị phần tử trong mảng
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    names[0] = 'Kevin';
+    console.log(names);//kết quả ['Kevin', 'Tom', 'Brad'];
+
+    Thêm phần tử vào mảng
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    names.push('Kevin');
+    //kết quả: ['Leonardo', 'Tom', 'Brad', 'Kevin'];
+    names[4] = 'Jared'; thêm Jared vào phần tử thứ 4 của mảng
+    //kết quả là: ['Leonardo', 'Tom', 'Brad', 'Kevin', 'Jared'];
+
+    Xóa phần tử cuối cùng:POP()
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    var last = names.pop();
+    //kết quả: names = ['Leonardo', 'Tom'] - last = 'Brad' biến last lưu phần tử đã được xóa đi
+
+    Thêm phần tử vào đầu: UNSHIFT()
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    names.unshift('Kevin');
+    //kết quả: ['Kevin', 'Leonardo', 'Tom', 'Brad'];
+
+    Xóa phần tử đầu tiên: SHIFT()
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    var first = names.shift('Leonardo');
+    //kết quả: names = ['Tom', 'Brad']; - first = 'Leonardo';
+
+    Xóa 1 phần tử bằng vị trí: DELETE
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    delete names[2];
+    //kết quả: ['Leonardo', 'Tom', undefined];
+    chú ý: delete làm giá trị thành undefined chứ không làm thay đổi kích thước mảng.
+
+    Sắp xếp mảng: SORT()
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    name.sort();
+    //kết quả: ['Brad', 'Leonardo', 'Tom'] thực hiện sắp xếp mảng theo thứ tự bảng chữ cái
+
+    Đảo ngược vị trí phần tử trong mảng: REVERSE()
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    names.reverse();
+    //kết quả: ['Brad', 'Tom', 'Leonardo']
+
+    Nối mảng: CONCAT()
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    var more = ['Kevin', 'David'];
+    var collectionA = names.concat(more);
+    kết quả: ['Leonardo', 'Tom', 'Brad', 'Kevin', 'David'];
+    var collectionB = more.concat(names);
+    kết quả: ['Kevin', 'David', 'Leonardo', 'Tom', 'Brad'];
+
+    Chuyển mảng thành chuỗi
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    console.log( names.toString() );
+    kết quả: Leonardo, Tom, Brad
+    console.log( names.join(' - ') );
+    kết quả: Leonardo - Tom - Brad
+
+    Vòng lặp mảng
+    var names = ['Leonardo', 'Tom', 'Brad'];
+    for(var i = 0; i < names.length; i++){
+        console.log(name[i]); in ra từng phần tử của từng vị trí trong mảng
+    }
+-->
+
+<script>
+var names = ['Leonardo', 'Tom', 'Brad'];
+names.push('Kevin');
+console.log(names);
+
+var last = names.pop();
+console.log(names);
+console.log(last);
+
+var first = names.shift();
+console.log(names);
+console.log(first);
+
+names[0] = 'Kevin';
+console.log(names);
+
+var names2 = ['Leonardo', 'Tom', 'Brad'];
+names2.sort();
+console.log(names2);
+
+var names3 = ['Leo', 'Tom', 'Brad'];
+var more = ['Kevin', 'Pete'];
+console.log( names3.concat(more));
+console.log(more.concat(names3));
+
+for(var i = 0; i < names3.length; i++){
+    console.log(names3[i]);
+}
+</script>
