@@ -1,0 +1,129 @@
+<!--
+    Vòng lặp for
+    for(init; condition; statement){
+        code
+    }
+    init: cậu lệnh thực thi trước khi bước vào khối lệnh lặp
+    condition: điều kiện kiểm tra vòng lặp tiếp tục thực hiện hay dừng
+    statement: câu lệnh thực thi sau mỗi vòng lặp
+    code: khối lệnh thự hiện vòng lặp
+
+    var sum = 0;
+    for(var i = 1; i <= 10; i++){
+        sum += i;
+    }
+    console.log("sum: "+ sum);
+
+    Vòng lặp while
+    while(condition){
+        code
+    }
+    condition: điều kiện thực hiện vòng lặp
+    code: khối lệnh thực hiện trong vòng lặp
+
+    var sum = 0;
+    var i = 1;
+    while (i <= 10){
+        sum += i; or sum = sum + i;
+        i += 1; or i = i + 1;
+    }
+    console.log("sum: "+ sum);
+
+    Vòng lặp Do - while
+    do{
+        code
+    } while(condition);
+    condition: điều kiện thực hiện vòng lặp
+    code: khối lệnh thực hiện trong vòng lặp
+    đảm bảo phần code được thực thi ít nhất một lần rồi mới kiểm tra ddieuf kiện
+
+    var sum = 0;
+    var i = 1;
+
+    do{
+        sum += i;
+        i += 1;
+    } while(i <= 10);
+    console.log("sum: "+ sum);
+
+
+    Điều khiển vòng lặp
+    Break 
+
+    var sum = 0;
+    for(var i = 1; i <= 10; i ++){
+        if(i > 5) break; khi i lớn hơn 5 sẽ thoát khỏi vòng lặp và thực hiện tính tổng i chạy từ 1 tới 5
+        sum +=i;
+    }
+    console.log("sum: "+ sum); sum: 15
+    
+    Continue
+    var sum = 0;
+    var i = 1;
+    while(i <= 10){
+        if(i == 5){ nếu giá trị i = 5 thì sẽ không tính và loại khỏi vòng lặp và tiêp tục tính tổng theo i tiếp theo
+            i += 1;
+            continue;
+        }
+        sum += i;
+        i += 1;
+    }
+    console.log("sum: "+ sum); //Sum: 50
+-->
+
+<script>
+var sum = 0;
+var i = 1;
+for(var i = 1; i <= 10; i++){
+    sum += i; 
+}
+console.log("sum with for: "+ sum);
+
+var sum = 0;
+var i = 1;
+ while (i <= 10){
+     sum += i;
+     i += 1;
+ }
+ console.log("Sum with While: "+ sum);
+
+ var sum  = 0;
+ var i = 1;
+ do{
+     sum += i;
+     i += 1;
+ }while (i <= 10)
+ console.log("Sum with Do-While: "+ sum);
+
+ var sum = 0;
+ var i = 1;
+for(; i <= 10; i++){
+    if(i % 2 == 0){ 
+      sum += i;  //tính tổng sum khi i là số chẵn
+    }
+}
+console.log("sum: "+sum)
+
+var sum = 0;
+var i = 1;
+for(; i <= 10; i++){
+    if(i % 2 == 1){ 
+        continue; //nếu i là số lẻ thì bỏ qua chỉ tính số chẵn
+    }
+    sum += i;
+}
+console.log("sum with continue: "+ sum);
+
+var sum = 0;
+var i = 1;
+for(; i <= 10; i++){
+    if(i % 2 == 1){
+        continue; //nếu i là số lẻ thì bỏ qua chỉ tính số chẵn
+    }
+    if(i > 8){
+        break; //nếu i > 8 thì dừng vòng lặp
+    }
+    sum += i;
+}
+console.log("sum with continue"+ sum);
+</script>
