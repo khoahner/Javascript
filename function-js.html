@@ -1,0 +1,74 @@
+<!--
+    Hàm: được thiết kế để xử lý một tác vụ cụ thể, sử dụng để tối ưu hóa code tránh xa khỏi việc thực thi code lại nhiều lần.
+
+    console.log('this is a function');
+    console.log('this is a alert() function');
+
+    khai báo
+    function name(param1, param2, ...){
+        code
+    }
+    name: tên của hàm để sử dụng
+    param1, param2: tên của tham số muốn truyền vào trong hàm, không hạn chế số lượng.
+
+    ví dụ:
+    function hello(name){
+        console.log('hello' + name);
+    }
+    hello('leo'); // hello leo
+    hello('brad'); //hello brad
+
+    Giá trị trả về
+    sử dụng từ khóa return để trả về giá trị của hàm
+
+    function add(a,b){
+        return a + b;
+    }
+    var result = add(10, 10);
+    console.log("result: "+ result); // result : 20
+
+    Khai báo hàm như một biến 
+    var name = function (param1, param2,...){
+        code
+    };
+    name: tên của hàm dung để sử dụng
+    param1, param2,..: tên của tham số muốn truyền vào trong hàm. không hạn chế số lượng
+
+    var bye = function(name){
+        return 'goodbye '+ name;
+    };
+    console.log(bye('Tom')); goodbye Tom
+
+
+-->
+
+<script>
+function hello(name){
+    console.log('hello ' + name);
+}
+hello('Tom');
+hello('brad');
+hello('daisy');
+
+function xinchao(name){
+    console.log('hello world');
+};
+xinchao();
+xinchao();
+xinchao();
+
+function chaoban(name){
+    return 'xin chao ' + name;
+};
+console.log(chaoban('khoa'));
+
+var sum = function (start, end){
+    var result = 0;
+    for(var i = start; i < end; i++){
+        result += i;
+    }
+    return result;
+}
+console.log('Sum (1, 10) = '+ sum(1, 10));
+console.log('Sum (1, 100) = '+ sum(1, 100));
+</script>
