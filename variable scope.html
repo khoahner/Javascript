@@ -1,0 +1,57 @@
+<!--
+    Phạm vi của biến
+    - Mặc định các biến khai báo có phạm vi global
+    - Các biến khai báo bên trong hàm sẽ chỉ có giá trị bên trong hàm đó, phạm vi local
+    - Các hàm có thể sử dụng các biến có phạm vi global
+    - Nếu trong hàm có khai báo một biến trùng tên với biến bên ngoài phạm vi hàm thì sẽ ưu tiên với biến local đó.
+
+    ví dụ
+    var name = 'khoa'; khai báo 1 biến name
+    function getName(){ trong hàm getName không có 1 parameter hoặc 1 biến name nào
+        console.log('getName: '+ name); thực hiên in ra giá trị của biến name trong hàm getName
+    }
+    getName(); //getName: khoa ta sẽ có kết quả của hàm getName vẫn là khoa
+    console.log('name: '+ name); //name: khoa biến name global vẫn là khoa
+
+    var name = 'leo';
+    function getName() {
+        var name = 'brad';
+        console.log('getName: '+ name);
+    }
+    getName(); //getName: brad vì trong hàm getName ta đã khai báo 1 biến name phạm vi local có giá trị là brad
+    console.log('name: '+ name) name: leo vì biến name này thuộc biến name global ta đã khai báo ở phạm vi global
+
+    cách viết khác
+    var name = 'leo';
+    funtion getName(name){
+        console.log('getName: '+ name);
+    }
+    getName('tom'); // hàm getName se có giá trị là Tom 
+    console.log('name: '+ name); giá trị là leo
+-->
+
+<script>
+var name = 'leo'; //biến global
+function getName() {
+    var name = 'brad'; //biến local
+    console.log('getName: '+ name);
+}
+getName();
+console.log('name: '+ name);
+
+var name = 'leo'; //biến global
+function getName(name) { //biến name phụ thuộc vào giá trị chúng ta truyền vào hàm getName
+    
+    console.log('getName: '+ name);
+}
+getName('khoa'); 
+console.log('name: '+ name);
+
+//var name = 'leo'; không khai báo biến global
+function getName(name) { //biến name phụ thuộc vào giá trị chúng ta truyền vào hàm getName
+    
+    console.log('getName: '+ name);
+}
+getName('khoa'); 
+
+</script>
