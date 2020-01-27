@@ -1,0 +1,233 @@
+<!--
+    trong lập trình hướng đối tượng, các vật thể mang những đặc điểm(property) và phương thức (method) giống nhau, được nhóm lại và Javascript mô tả lại dưới dạng đối tượng
+    ví dụ như các con vịt có màu lông vàng và hay kêu quác quác, xe ô tô có màu đen và có thể khởi động, di chuyển hay dừng.
+
+    khai báo: 
+    đối tượng được khai báo với đặc tính và phương thức nằm trong đấu ngoặc nhọn {} theo dạng sau: 
+
+    var duck = {
+        color: 'yellow', //đây là đặc tính
+
+        talk: function() { //đây là phương thức
+            return 'quack quack';
+        }
+    };
+
+    console.log('duck color: '+ duck.color);
+    console.log('duck sounds: '+ duck.talk);
+
+    Đặc tính (property)
+    sử dụng dấu chấm . và gọi tên phương thức hoặc dùng cặp dáu []
+
+    object.property;
+    object['property'];
+
+    ví dụ
+    duck.color = 'yellow';
+    duck['color'] = 'yellow';
+
+    Phương thức (method)
+    sử dụng dấu chấm . và gọi tên phương thức với cặp dấu (), tương tự như gọi tên hàm
+    
+    object.method();
+    ví dụ
+
+    duck.talk();
+
+    Lưu ý: 
+    - Object cũng là một kiểu dữ liệu trong Javascript và sử dụng như một biến
+    - Có thể khai báo  object rỗng, tức là object không có đặc điểm hay phương thức ban đầu
+    - Có thể thêm thuộc tính hay phương thức cho object bất cứ lúc nào sau thời điểm khai báo
+-->
+
+<script>
+var duck = {
+    color: 'yellow',
+
+    speak: function (){
+        console.log('duck speaks: quack quack');
+    }
+};
+duck.name = 'donald';
+console.log('duck name is: '+ duck.name);
+console.log('duck color is: '+ duck.color);
+duck.speak();
+
+//khai báo 1 object rỗng
+var dog = {};
+    dog.color = 'brown',
+    dog.name = 'lufy'
+
+    dog.speak =  function () {
+        console.log('dog speaks: gau gau');
+    }
+
+console.log('dog color: '+ dog.color);
+console.log('dog name: '+ dog.name);
+dog.speak();
+</script>
+
+<!--
+    Việc khai báo đối tượng như một biến có một số hạn chế là chỉ tạo ra duy nhất một đối tượng,
+    sẽ tạo ra một vấn đề là code sẽ bị lặp lại mỗi khi tạo tao ra một đối tượng mới
+
+    ví dụ
+
+    var donald = {
+        name: 'donald';
+        color: 'yellow';
+        speak: function (){
+            return 'quack quack';
+        }
+    };
+
+    var daisy = {
+        name: 'daisy';
+        color: 'blue';
+        speak: function() {
+            return 'quack quack';
+        }
+    };
+
+    Nhóm đối tượng
+    khai báo nhóm đối tượng như một hàm
+    sử dụng từ khóa new để tạo đối tượng mới
+    sử dụng từ khoa this để thết lập đặc tính và phương thức cho nhóm đối tượng
+
+    //tạo nhóm đối tượng là : Duck
+
+    function Duck (name, color) {
+
+        //thiết lập thuộc tính: name, color
+        this.name = name;
+        this.color = color;
+
+        //thiết lập phương thức chung
+        this.talk = function () {
+            return 'quack quack';
+        };
+    }
+
+    //tạo đối tượng : donald
+
+    var donald = new Duck ('Donald','yellow');
+
+    //tạo đối tượng là: daisy
+
+    var daisy = new Duck ('Daisy','yellow');
+
+    console.log(donald.name + ' speaks ' + donald.talk());
+    console.log(daisy.name + ' speaks ' + daisy.talk());
+-->
+
+<script>
+function Duck (name, color) {
+    this.name = name;
+    this.color = color;
+
+    this.speak = function(){
+        console.log(this.name + ' speak quack quack and color is ' + this.color);
+    }
+};
+var donald = new Duck('Donald','yellow');
+var daisy = new Duck('Daisy','blue');
+
+donald.speak();
+daisy.speak();
+
+//tạo 1 function chung cho 1 lớp đối tượng
+function Dog (name, color){
+    this.name = name;
+    this.color = color;
+
+    this.speak = function (){
+        console.log(this.name + ' speak gau gau and color is '+ this.color);
+    }
+};
+//tạo đối tượng 
+var luffy = new Dog('Luffy','brown');
+var lulu = new Dog('Lulu','black');
+
+luffy.speak();
+lulu.speak();
+
+</script>
+
+<!--
+    Thay đổi đặc tính, phương thức như thế nào sau khi khai báo?
+
+    function Duck(name, color) {
+        //thiết lập thuộc tính name, color
+        this.name = name;
+        this.color = color;
+        //thiết lập phương thức chung
+        this.talk = function (){
+            return 'quack quack';
+        }
+    };
+
+    nếu đã khai báo 1 đối tượng có các thuộc tính và phương thức chung thì không thể sủ dụng 
+    kiêu khai báo đối tượng.thuộc tính để thêm vào những đặc tính mới 
+    Duck.height = 1.5;
+    Duck.walk = function(distance){
+        console.log(this.name + ' walks for '+ distance + ' meters')
+    };
+
+    var donald = new Duck('Donald','yellow');
+    console.log(donald.name + ' height is ' + donald.height + 'feet' ); //error
+    donald.walk(); //error
+    
+    thực hiện việc mở rộng không theo quy chuẫn sẽ gây ra lỗi
+
+    Prototype
+    - Dùng để thiết lập thuộc tính và phương thức chung cho cả môt nhóm đối tượng.
+    - Vẫn sử dụng được this để sử dụng các phương thức hay thuộc tính đã khai báo.
+
+    object.prototype.new_prop = object.prototype,new_prop = function (param1, param2,...){
+        code
+    };
+
+    Duck.prototype.height = 1.5;
+    Duck.prototype.walk = function (distance){
+        console.log(this.name + ' walks for ' + distance + 'meters')
+    };
+
+    var donald = new Duck ('Donald','yellow');
+    console.log(donald.name + ' height is ' + donald.height + 'feet' ); 
+    donald.walk(); 
+
+    - Có thể khai báo prototype như một object
+    Duck.prototype = {
+        height = 1.5;
+        walk: function (distance){
+            console.log(this.name + ' walks for ' + distance + 'meters');
+        }
+    }
+-->
+
+<script>
+function Dog (name, color, height){
+    this.name = name;
+    this.color = color;
+    this.height = height;
+    this.speak = function (){
+        console.log(this.name + ' speak gau gau and color is '+ this.color);
+    }
+};
+//tạo đối tượng 
+var luffy = new Dog('Luffy','brown',1.5);
+var lulu = new Dog('Lulu','black',2);
+
+luffy.speak();
+lulu.speak();
+
+
+Dog.prototype.walk = function (distance){
+    console.log(this.name +' height is '+ this.height + ' walks for ' + distance + ' meters');
+    
+}
+
+
+lulu.walk(5);
+luffy.walk(4);
+</script>
