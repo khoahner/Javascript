@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Học Javascript Cơ Bản
+        </title>
+    </head>
+    <body>
+        <h1>Hello Javascript</h1>
+        <h2>Hello Nhật Khoa</h2>
+        
+        <button onclick="onClickMe()">Click Me</button> <!--đặt tên cho hàm để xử lý khi người dùng thao tác click vào button-->
+        
+        <p>You have clicked <span id = "dem">0</span> times</p> <!-- đặt id = count cho thẻ span để cập nhật sự kiện đếm số lần click-->
+
+        <script>
+        //Xử lý sự kiện khi người dùng nhấn nút hay còn gọi là event onclick
+        var count = 0;
+        function onClickMe(){ 
+            count ++; //tăng biến count lên 1 sau mỗi lần click
+
+            //document.querySelector('#number').innerText = count; //dùng hàm document.querySelector để tìm thẻ count và cập nhật nội dung.
+
+            //dùng document.getElementById
+            document.getElementById('dem').innerText = count;
+            console.log('Button is clicked'); //bắt sự kiện khi người dùng click vào thì hàm tự động hiển thị trong màn hình console
+        }
+        
+        </script>
+    </body>
+
+</html>

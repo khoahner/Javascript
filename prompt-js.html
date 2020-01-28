@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Học Javascript Cơ Bản
+        </title>
+    </head>
+    <body>
+        <h1>Hello Javascript</h1>
+        <h2>Hello Nhật Khoa</h2>
+        <script src="app.js"></script> <!--tạo liên kết file js với html-->
+        
+        <script>
+        //document.write in ra màn hình index nội dung muốn hiển thị 
+        document.write('<h3>Hello Javascript</h3>'); 
+        
+        //document.querySelector tìm ra thẻ html tương ứng để thay đổi nội dung
+        var h1 = document.querySelector('h1'); 
+        var h2 = document.querySelector('h2');
+        
+        //<tag>.innerHTML or innerText thay đổi nội dung hiển thị
+        h1.innerHTML = '<u>Leo won Oscar 2016</u>'; //có thể thêm thẻ để thay đổi nội dung hiển thị
+
+        h2.innerText = '<u>Hoc Javascript trong 1 giờ</u>'; //chỉnh sửa doạn text của thẻ h1 
+        
+        //Hàm prompt
+        var name = prompt('What is your name?'); //lấy dữ liệu nhập vào từ người dùng
+        document.write('<p>Name: '+ name + '</p>');//hiển thị thông tin vừa nhập
+
+        var age = prompt('How old are you?');
+        document.write('<p>Age: '+age+'</p>');
+        
+        //Hàm confirm
+        var isMale = confirm('Are you Male?');// hiên thị hộp thoại xác nhận đúng hay không đúng trả về kết quả true false
+        //console.log(isMale);
+
+        var gender = isMale ? 'male':'female';
+        document.write('<p>Gender: '+gender+'</p>');
+        </script> 
+        
+
+       
+    </body>
+
+</html>

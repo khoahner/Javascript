@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Học Javascript Cơ Bản
+        </title>
+    </head>
+    <body>
+    <form>
+       <input type="text" id="name">
+       <input type="number" id="age">
+       <select name="gender" id="gender">
+           <option value="male">Male</option>
+           <option value="female">Female</option>
+       </select>
+       <input type="submit" value="Submit" onclick="event.preventDefault(); onClick();">
+    </form>
+       <div id="result"></div>
+       <script>
+       function onClick(){
+           //console.log('clicked'); kiểm tra xem trong console có bắt được sự kiện submit ko
+            //hiển thị những gì người dung đã nhập
+           var name = document.getElementById('name').value;//vì biến là thuộc tính object nên fai thêm .value để lấy giá trị
+           var age = document.getElementById('age').value;
+           var gender = document.getElementById('gender').value;
+            
+           var result = document.getElementById('result');
+           result.innerHTML =
+                                '<p>Name: '+ name +'</p>'
+                               +'<p>Age: '+ age +'</p>'
+                               +'<p>Gender: '+ gender +'</p>';
+       }
+       
+       </script>
+    <!--
+        lưu ý: 
+            bản chất của form trong html sẽ thực hiện reload và biến mất sau khi hiển thị
+    -->
+    </body>
+
+</html>
